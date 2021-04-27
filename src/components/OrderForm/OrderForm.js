@@ -15,9 +15,19 @@ class OrderForm extends Component {
     console.log(this.state)
 }
 
+handleIngredientChange = event => {
+  event.preventDefault()
+  this.setState({ ingredients: [...this.state.ingredients, event.target.name]})
+}
+
   handleSubmit = e => {
     e.preventDefault();
-    this.clearInputs();
+    if(!this.state.name && this.state.ingredients.length !== 0 ){
+      this.props.makeOrder({ name: this.state.name, ingredients: this.state.ingredients})
+      this.clearInputs();
+    } else {
+      this.setState({ error: 'Enter your name and at least one ingredient for your burrito!!'})
+    }
   }
 
   clearInputs = () => {
