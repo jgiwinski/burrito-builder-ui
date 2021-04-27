@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class OrderForm extends Component {
   constructor(props) {
@@ -67,3 +68,9 @@ handleIngredientChange = event => {
 }
 
 export default OrderForm;
+
+OrderForm.propTypes = {
+  handleIngredientChange: PropTypes.func,
+  handleNameChange: PropTypes.func, 
+  handleSubmit: PropTypes.func
+}
