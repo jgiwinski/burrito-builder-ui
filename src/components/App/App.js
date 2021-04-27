@@ -35,7 +35,7 @@ class App extends Component {
       <main className="App">
         <header>
           <h1>Burrito Builder</h1>
-          <OrderForm />
+          <OrderForm makeOrder={this.makeOrder}/>
         </header>
 
         <Orders orders={this.state.orders}/>

@@ -22,7 +22,7 @@ handleIngredientChange = event => {
 
   handleSubmit = e => {
     e.preventDefault();
-    if(!this.state.name && this.state.ingredients.length !== 0 ){
+    if(!!this.state.name && this.state.ingredients.length !== 0 ){
       this.props.makeOrder({ name: this.state.name, ingredients: this.state.ingredients})
       this.clearInputs();
     } else {
