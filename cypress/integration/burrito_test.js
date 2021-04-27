@@ -1,11 +1,13 @@
-describe('Turing Cafe Reservations', () => {
+describe('Boulder Burrito Builder Big Bunch of Bananas', () => {
+
     beforeEach(() => {
-        cy.visit('http://localhost:3000')
-    }); 
+        cy.intercept('http://localhost:3001/api/v1/orders', { fixture: 'dummy_data.json' })
+            .visit('http://localhost:3000/')
+    });
+
 
     it('Should display a home page with a title', () => {
-        cy.get('h1').should('have.class', 'app-title')
-            .get('h1').contains('Turing Cafe Reservations')
+        cy.get('h1').contains('Burrito Builder')
     }); 
 
     // it('Should have a form with input fields and button', () => {
